@@ -1,14 +1,24 @@
+using Evently.Api.Extensions;
+using Evently.Modules.Events.Api;
+using Scalar.AspNetCore;
+
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddEndpointsApiExplorer();
-
 builder.Services.AddOpenApi();
+
+builder.Services.AddEventsModule(builder.Configuration);
 
 WebApplication app = builder.Build();
 
 if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
+    app.MapScalarApiReference();
+
+    app.ApplyMigrations();
 }
+
+EventsModule.MapEndpoints(app);
 
 await app.RunAsync();
