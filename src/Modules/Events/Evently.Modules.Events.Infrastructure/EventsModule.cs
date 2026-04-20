@@ -19,7 +19,7 @@ public static class EventsModule
 {
     public static void MapEndpoints(IEndpointRouteBuilder app)
     {
-        EventsEndpoints.MapEndpoints(app);
+        EventEndpoints.MapEndpoints(app);
     }
 
     public static IServiceCollection AddEventsModule(

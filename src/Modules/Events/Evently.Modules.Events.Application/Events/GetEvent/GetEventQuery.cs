@@ -2,5 +2,5 @@
 
 namespace Evently.Modules.Events.Application.Events.GetEvent;
 
-public sealed record GetEventQuery(Guid Id) : IRequest<EventResponse?>;
+public sealed record GetEventQuery(Guid EventId) : IRequest<EventResponse?>;
 
