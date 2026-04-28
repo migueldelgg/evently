@@ -1,8 +1,8 @@
 ﻿using Evently.Modules.Events.Application.Abstractions.Data;
-using Evently.Modules.Events.Application.Events;
 using Evently.Modules.Events.Domain.Events;
 using Evently.Modules.Events.Infrastructure.Data;
 using Evently.Modules.Events.Infrastructure.Database;
+using Evently.Modules.Events.Infrastructure.Events;
 using Evently.Modules.Events.Presentation.Events;
 using FluentValidation;
 using Microsoft.AspNetCore.Routing;
