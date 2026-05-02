@@ -13,6 +13,6 @@ internal sealed class EventRepository(EventsDbContext context) : IEventRepositor
 
     public void Insert(Event @event)
     {
-        context.Add(@event);
+        context.Events.Add(@event);
     }
 }

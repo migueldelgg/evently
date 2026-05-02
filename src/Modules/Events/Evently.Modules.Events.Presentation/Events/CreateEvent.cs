@@ -1,7 +1,5 @@
-using Evently.Modules.Events.Application.Events;
 using Evently.Modules.Events.Application.Events.CreateEvent;
-using Evently.Modules.Events.Domain.Events;
-using Evently.Modules.Events.Presentation;
+using Evently.Modules.Events.Domain.Abstractions;
 using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
@@ -17,6 +15,7 @@ internal static class CreateEvent
         {
             // 1. Cria o comando de acordo com a request, enviando somente os dados necessários para cumprir o use-case
             var command = new CreateEventCommand(
+                Guid.NewGuid(),
                 request.Title,
                 request.Description,
                 request.Location,
@@ -24,7 +23,7 @@ internal static class CreateEvent
                 request.EndsAtUtc);
             
             // 2. Envia o comando
-            Guid eventId = await sender.Send(command);
+            Result<Guid> eventId = await sender.Send(command);
             
             // 3. Devolve o resultado
             return Results.Ok(eventId);
