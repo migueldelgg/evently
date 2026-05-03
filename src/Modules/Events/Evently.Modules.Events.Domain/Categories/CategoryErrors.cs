@@ -7,7 +7,7 @@ public static class CategoryErrors
     public static Error NotFound(Guid categoryId) =>
         Error.NotFound("Categories.NotFound", $"The category with the identifier {categoryId} was not found");
     
-    public static Error AlreadyExist (Guid categoryId) =>
+    public static Error AlreadyExists (Guid categoryId) =>
         Error.Problem("Categories.AlreadyExist", $"The category with the identifier {categoryId} already exist");
 
     public static readonly Error AlreadyArchived = Error.Problem(
