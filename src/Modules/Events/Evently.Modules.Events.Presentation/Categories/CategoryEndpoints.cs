@@ -6,6 +6,7 @@ public abstract class CategoryEndpoints
 {
     public static void MapEndpoints(IEndpointRouteBuilder app)
     {
+        CreateCategory.MapEndpoint(app);
         GetCategory.MapEndpoint(app);
     }
 }

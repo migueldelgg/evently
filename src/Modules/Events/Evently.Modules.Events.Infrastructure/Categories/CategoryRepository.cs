@@ -11,6 +11,11 @@ internal sealed class CategoryRepository(EventsDbContext context) : ICategoryRep
         return await context.Categories.SingleOrDefaultAsync(e => e.Id == id, cancellationToken);
     }
 
+    public async Task<Category?> GetCategoryByNameAsync(string name, CancellationToken cancellationToken = default)
+    {
+        return await context.Categories.SingleOrDefaultAsync(e => e.Name == name, cancellationToken);
+    }
+
     public void Insert(Category category)
     {
         context.Categories.Add(category);
